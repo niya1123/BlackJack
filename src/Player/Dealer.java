@@ -31,10 +31,6 @@ public class Dealer implements Player{
 		
 	}
 	
-	public void drawCards() {
-		havingCards.add(card.drawCard());
-	}
-	
 	public int getScore() {
 		int score = 0;
 		for(String havingCard: havingCards) {
@@ -50,5 +46,20 @@ public class Dealer implements Player{
 	public void payBet(){
 		
 	}
+
+	@Override
+	public void drawCard() {
+		int minPoint = 17;
+		int nowPoint = 0;
+		String drawCardName;
+		while(true) {
+			drawCardName = card.drawCard();
+			havingCards.add(drawCardName);
+			nowPoint += card.getPoint(drawCardName);
+			if(nowPoint >= minPoint) break;
+		}
+	}
+
+	
 	
 }
