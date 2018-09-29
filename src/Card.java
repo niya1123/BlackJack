@@ -60,10 +60,10 @@ public class Card {
 	}
 	
 	/**
-	 * カードのスコアを管理するもの.
-	 * @return カードのスコア.
+	 * カードの得点を管理するもの.
+	 * @return カードの得点.
 	 */
-	public int getScore(String drawCard) {
+	public int getPoint(String drawCard) {
 		String num = drawCard.split(" ")[2];
 		return (num.equals("J") || num.equals("Q") || num.equals("K")) ? 10: Integer.parseInt(num);
 	}
@@ -89,7 +89,7 @@ public class Card {
 			String drawCard = card.drawCard();
 			System.out.println(drawCard);
 			System.out.println("引いたカードのスコアを表示します.");
-			System.out.println(card.getScore(drawCard));
+			System.out.println(card.getPoint(drawCard));
 			i--;
 			if(card.getDeck().isEmpty()) {
 				System.out.println("残り" + i + "回"); break;
