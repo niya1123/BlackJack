@@ -64,7 +64,6 @@ public class Card {
 		System.out.println(drawCard);
 		System.out.println("引いたカードのスコアを表示します.");
 		System.out.println(card.getScore(drawCard));
-		
 	}
 	
 }
