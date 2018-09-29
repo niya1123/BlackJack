@@ -1,12 +1,15 @@
+package Player;
 import java.util.ArrayList;
 import java.util.List;
+
+import Tramp.Card;
 
 /**
  * ディーラークラス.
  * @author YK
  *
  */
-public class Dealer {
+public class Dealer implements Player{
 	
 	protected Card card;
 	private List<String> havingCards;

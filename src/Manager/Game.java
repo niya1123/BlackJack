@@ -1,3 +1,4 @@
+package Manager;
 /**
  * Gameクラス.
  * @author YK
