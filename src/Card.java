@@ -18,30 +18,45 @@ public class Card {
 	 */
 	final private String NUM[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
 	
+	/*
+	 * 山札.
+	 */
+	private List<String> deck;
+	
+	/**
+	 * コンストラクタ.フィールドのdeckを初期化.
+	 */
+	public Card() {
+		this.deck = new ArrayList<>();
+	}
+	
 	/**
 	 * 山札を構築します.
 	 * @return ハートの1などのStringが入ったListが返される.
 	 */
 	public List<String> structDeck(){
-		//returnのためのList
-		List<String> card = new ArrayList<>();
 		//拡張for文を用いてデッキを構築.4×13の計52枚のトランプが生成される.
 		for(String mark: MARK) {
 			for(String num: NUM) {
-				card.add(mark+" の "+num);
+				deck.add(mark+" の "+num);
 			}
 		}
-		return card;
+		return deck;
 	}
 	
 	/**
-	 * 山札からカードを引くためのもの.
+	 * 山札からカードを引くためのもの.Randomを用いて山札から１枚カードを引く.
+	 * その際,引いたカードはdeckから削除しておく.
 	 * @param deck 山札.
 	 * @return 引いたカード.
 	 */
-	public String drawCard(List<String> deck) {
+	public String drawCard() {
+		//新たに山札を構築しない限り,減って行く一方のはず.
 		Random rnd = new Random();
-		return deck.get(rnd.nextInt(52));
+		int index = rnd.nextInt(deck.size());
+		String card = deck.get(index);
+		deck.remove(index);
+		return card;
 	}
 	
 	/**
@@ -53,17 +68,34 @@ public class Card {
 		return (num.equals("J") || num.equals("Q") || num.equals("K")) ? 10: Integer.parseInt(num);
 	}
 	
+	/**
+	 * フィールドdeckのゲッター
+	 * @return deck デッキ
+	 */
+	public List<String> getDeck(){
+		return deck;
+	}
+	
 	//テスト用.後に削除予定.
 	public static void main(String[] args) {
 		Card card = new Card();
 		System.out.println("山札を生成します.");
-		List<String> deck = card.structDeck();
+		card.structDeck();
 		System.out.println("山札を生成しました.");
-		System.out.println("カードを１枚引きます.");
-		String drawCard = card.drawCard(deck);
-		System.out.println(drawCard);
-		System.out.println("引いたカードのスコアを表示します.");
-		System.out.println(card.getScore(drawCard));
+		int i = 52;
+		while(true) {
+			System.out.println("残り" + i + "回");
+			System.out.println("カードを１枚引きます.");
+			String drawCard = card.drawCard();
+			System.out.println(drawCard);
+			System.out.println("引いたカードのスコアを表示します.");
+			System.out.println(card.getScore(drawCard));
+			i--;
+			if(card.getDeck().isEmpty()) {
+				System.out.println("残り" + i + "回"); break;
+			}
+		}
+		
 	}
 	
 }
