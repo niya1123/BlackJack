@@ -88,7 +88,7 @@ public class Card {
 			System.out.println("カードを１枚引きます.");
 			String drawCard = card.drawCard();
 			System.out.println(drawCard);
-			System.out.println("引いたカードのスコアを表示します.");
+			System.out.println("引いたカードの点数を表示します.");
 			System.out.println(card.getPoint(drawCard));
 			i--;
 			if(card.getDeck().isEmpty()) {
