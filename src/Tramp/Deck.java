@@ -1,6 +1,8 @@
 package Tramp;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 /**
  * Deckクラス
@@ -20,6 +22,14 @@ public class Deck {
 				for(Num n: Num.values()) 
 					this.cards.add(new Card(n,m));
 		}
+	}
+	
+	public void suffle() {
+		Collections.shuffle(cards);
+	}
+	
+	public Card draw() {
+		return cards.remove(0);
 	}
 	
 	public ArrayList<Card> getCards(){

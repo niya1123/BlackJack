@@ -1,5 +1,6 @@
 package Player;
 
+import Tramp.Deck;
 
 /**
  * ディーラークラス.
@@ -8,6 +9,8 @@ package Player;
  */
 public class Dealer extends Player{
 	
-	
+	public Dealer() {
+		super(new Deck());
+	}
 	
 }

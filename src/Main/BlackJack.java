@@ -7,6 +7,7 @@ public class BlackJack {
 	public static void main(String[] args) {
 		Deck d = new Deck();
 		d.structDeck();
+		d.suffle();
 		int i = 0;
 		for(Card c: d.getCards()) {
 			i++;
