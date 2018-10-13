@@ -1,17 +1,43 @@
 package Main;
 
-import Tramp.Card;
+import Player.Player;
+import Player.Challenger;
+import Player.Dealer;
 import Tramp.Deck;
 
+/**
+ * 勝負させるクラス
+ * @author YK
+ *
+ */
 public class BlackJack {
-	public static void main(String[] args) {
-		Deck d = new Deck();
-		d.structDeck();
-		d.suffle();
-		int i = 0;
-		for(Card c: d.getCards()) {
-			i++;
-			System.out.println(i+": "+c.getCardName());
-		}
+	protected Deck deck;
+	protected Player challenger;
+	protected Player dealer;
+	
+	public BlackJack() {
+		deck = new Deck();
+		challenger = new Challenger(deck);
+		dealer = new Dealer(deck);
 	}
+	
+	public void showInfo(String info) {
+		System.out.println(info);
+	}
+	
+	public void showResult() {
+		if(challenger.getWin()) showInfo("あなとの勝利です！");
+		else if(dealer.getWin()) showInfo("あなたの負けです…");
+		else showInfo("引き分けです");
+	}
+	
+	public void singleTon() {
+		deck.structDeck();
+		deck.suffle();
+	}
+	
+	public void match() {
+		
+	}
+	
 }

@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 import Tramp.Card;
 
-
+/**
+ * お手てのクラス
+ * @author YK
+ *
+ */
 public class Hand {
 	
 	private ArrayList<Card> cards;

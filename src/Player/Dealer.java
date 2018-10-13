@@ -9,8 +9,8 @@ import Tramp.Deck;
  */
 public class Dealer extends Player{
 	
-	public Dealer() {
-		super(new Deck());
+	public Dealer(Deck deck) {
+		super(deck);
 	}
 	
 }
