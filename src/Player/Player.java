@@ -5,9 +5,8 @@ package Player;
  * @author YK
  *
  */
-public interface Player {
+public abstract class Player {
 	
-	public void drawCard();
 	
-	public int getScore();
+	
 }
